@@ -1,0 +1,33 @@
+body {
+    background: rgb(218, 215, 215);
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+.selects {
+    display: flex;
+    gap: 20px;
+    select {
+        width: 200px;
+        height: 20px;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 600px;
+}
+.legend i {
+    font-size: 20px;
+}
