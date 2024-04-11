@@ -1,12 +1,10 @@
 import Map, { Marker } from "react-map-gl";
-
 import { useEffect, useState } from "react";
 import { places } from "./consts/places";
 import { cities } from "./consts/cities";
 import { categories } from "./consts/categories";
 import "mapbox-gl/dist/mapbox-gl.css";
-
-console.log({ places });
+import { typeIcon } from "./consts/typeIcon";
 
 function App() {
     const [currentCity, setCurrentCity] = useState(cities[0]);
@@ -31,7 +29,7 @@ function App() {
             latitude: currentCity.coords.lat,
         });
     }, [currentCity]);
-
+    console.log(markers);
     return (
         <div className="body">
             <div className="selects">
@@ -67,17 +65,17 @@ function App() {
                     mapLib={import("mapbox-gl")}
                     {...viewState}
                     onMove={(evt) => setViewState(evt.viewState)}
-                    style={{ width: 500, height: 500 }}
+                    style={{ width: 800, height: 500 }}
                     mapStyle="mapbox://styles/mapbox/dark-v11"
                     mapboxAccessToken={import.meta.env.VITE_mapBoxToken}
                 >
-                    {markers.map(({ id, coords, icon }) => (
+                    {markers.map(({ id, coords, category }) => (
                         <Marker
                             key={id}
                             longitude={coords.long}
                             latitude={coords.lat}
                         >
-                            <i className={icon}></i>
+                            <div>{typeIcon[category]}</div>
                         </Marker>
                     ))}
                 </Map>
