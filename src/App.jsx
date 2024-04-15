@@ -90,10 +90,3 @@ function App() {
 }
 
 export default App;
-// style={{
-//     width: "20px",
-//     height: "20px",
-//     borderRadius: "50%",
-//     background:
-//         viewState.zoom > 10 ? "pink" : "black",
-// }}
